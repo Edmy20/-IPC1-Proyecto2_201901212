@@ -35,7 +35,7 @@
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
               <li class="nav-item active"><a href="/home/usuario" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
-              <li class="nav-item"><a href="#" class="nav-link">Perfil</a></li>
+              <li class="nav-item"><a href="/perfil/{{usuario}}" class="nav-link">Perfil</a></li>
               <li class="nav-item"><a href="/registroReceta" class="nav-link">Añadir Receta</a></li>
               <li class="nav-item"><a href="/logout" class="nav-link">Log Out</a></li>
             </ul>
@@ -53,7 +53,6 @@
         <div class="w3-display-right w3-padding-large">
           <h1 class="w3-text-white">CUK's</h1>
           <h1 class="w3-jumbo w3-text-white w3-hide-small"><b>Un disfrutre al Paladar</b></h1>
-          <h6><button class="w3-button w3-white w3-padding-large w3-large w3-opacity w3-hover-opacity-off" onclick="document.getElementById('subscribe').style.display='block'">SUBSCRIBE</button></h6>
         </div>
       </header>
     
@@ -112,7 +111,7 @@
               <h4>Ingredientes</h4>
             </div>
             <ul class="w3-ul w3-hoverable w3-white">
-            <p>{{receta.ingredientes}}</p>
+            </br><p>{{receta.ingredientes}}</p></br>
 
             </ul>
           </div>
@@ -123,7 +122,7 @@
               <h4>Tiempo de  Preparacion Estimado</h4>
             </div>
             <div class="w3-container w3-white">
-             <p>{{receta.tiempo}}</p>
+            </br><p>{{receta.tiempo}}</p></br>
             </div>
           </div>
           <hr>
@@ -152,18 +151,6 @@
     <!-- END w3-content -->
     </div>
     
-    <!-- Subscribe Modal -->
-    <div id="subscribe" class="w3-modal w3-animate-opacity">
-      <div class="w3-modal-content" style="padding:32px">
-        <div class="w3-container w3-white">
-          <i onclick="document.getElementById('subscribe').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
-          <h2 class="w3-wide">SUBSCRIBE</h2>
-          <p>Join my mailing list to receive updates on the latest blog posts and other things.</p>
-          <p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail"></p>
-          <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="document.getElementById('subscribe').style.display='none'">Subscribe</button>
-        </div>
-      </div>
-    </div>
     
     <!-- Footer -->
     <footer class="w3-container w3-dark-grey" style="padding:32px">

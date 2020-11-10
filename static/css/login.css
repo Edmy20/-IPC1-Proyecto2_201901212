@@ -18,6 +18,18 @@ body {
     margin-top: 100px
 }
 
+.boxF {
+    width: 500px;
+    padding: 40px;
+    top: 50%;
+    left: 50%;
+    background: linear-gradient(to right, #ffefba, #ffffff);
+    ;
+    text-align: center;
+    transition: 0.25s;
+    margin-top: 100px
+}
+
 .box input[type="text"],
 .box input[type="password"] {
     border: 0;
@@ -62,6 +74,56 @@ body {
 }
 
 .box input[type="submit"]:hover {
+    background: #2ecc71
+}
+
+
+
+
+.boxF input[type="text"],
+.boxF input[type="password"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 10px 10px;
+    width: 250px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s
+}
+
+.boxF h1 {
+    color: #BD3518;
+    text-transform: uppercase;
+    font-weight: 500
+}
+
+.boxF input[type="text"]:focus,
+.boxF input[type="password"]:focus {
+    width: 300px;
+    border-color: #2ecc71
+}
+
+.boxF input[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid rgb(117, 226, 90);
+    padding: 14px 40px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer
+}
+
+.boxF input[type="submit"]:hover {
     background: #2ecc71
 }
 

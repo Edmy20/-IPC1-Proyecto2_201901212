@@ -27,12 +27,18 @@ def validar_login(user, contrasena):
     return None
 
 def buscar_receta(titulo):
-    print('aaaaaaaaa')
     for receta in recetas:
         if receta.titulo == titulo:
-            print(receta.ingredientes)
             return receta
-    return None   
+    return None
+
+def buscar_usuario():
+    print('e')
+    for user in usuarios:
+        if user.nombre == session['usuario_logeado']:
+            print('2')
+            return user
+    return None 
     
 def crear_usuario(user, nombre, apeliido, contrasena):
     usuarios.append(Usuario(user, nombre, apeliido, contrasena))
@@ -129,6 +135,27 @@ def agregarRecetas():
 
     return {"msg": 'Receta agregada'}
 
+@app.route('/perfil/<usuario>',methods=["GET","POST"])
+def perfil(usuario):
+    user= buscar_usuario()
+    if  request.method == "POST":
+      id= usuarios.index(user)
+     
+      req= request.form
+      user2 =req.get("usuario")
+      contrasena= req.get("contrasena")
+      nombre = req.get("nombre")
+      apellido = req.get("apellido")
+
+      user_temp = Usuario(user2,nombre,apellido,contrasena)
+      usuarios[id]=user_temp
+
+      session['usuario_logeado']=usuarios[id].nombre
+      return render_template('perfil.html', user = usuarios[id], recetas = recetas)
+
+    return render_template('perfil.html', user=user, recetas= recetas)
+
+
 @app.route('/receta/<titulo>', methods=['POST','GET'])
 def mostrar_receta(titulo):
     tamaño=0
@@ -148,11 +175,34 @@ def mostrar_receta(titulo):
       return render_template('receta.html', usuario=session['usuario_logeado'], receta= receta, tamaño=tamaño)  
     return render_template('receta.html', usuario=session['usuario_logeado'], receta= receta, tamaño=tamaño)
 
-    
+@app.route('/eliminar/<titulo>')
+def eliminar_receta(titulo):
+    receta = buscar_receta(titulo)
+    recetas.remove(receta)
+    return redirect(url_for('perfil', usuario=session['usuario_logeado']))
+
+@app.route('/modificar/<titulo>',methods=["GET","POST"])
+def modificar(titulo):
+    receta = buscar_receta(titulo)
+    if  request.method == "POST":
+      id= recetas.index(receta)
+     
+      req= request.form
+      titulo =req.get("titulo")
+      resumen= req.get("resumen")
+      ingredientes = req.get("ingredientes")
+      preparacion = req.get("preparacion")
+      tiempo = req.get("tiempo")
+      imagen = req.get("imagen")
+      autor = session['usuario_logeado']
+      rec_temp = Receta(autor, titulo, resumen, ingredientes, preparacion, tiempo, imagen)
+      recetas[id]=rec_temp
+      return redirect(url_for('usuario_home'))  
+    return render_template('modificar.html',receta=receta)
 
 @app.route('/home')
 def  home():
     return render_template('home.html', recetas=recetas)
 
 if __name__ =='__main__':
-    app.run(debug=True)
+    app.run(threaded=True, host="0.0.0.0", port=5000, debug=True)

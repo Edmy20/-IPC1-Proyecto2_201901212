@@ -40,8 +40,8 @@ body {
   
       <div id="navbarSupportedContent" class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="#" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
-          <li class="nav-item"><a href="#" class="nav-link">Perfil</a></li>
+          <li class="nav-item active"><a href="/home/usuario" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a href="/perfil/{{usuario}}" class="nav-link">Perfil</a></li>
           <li class="nav-item"><a href="/registroReceta" class="nav-link">Añadir Receta</a></li>
           <li class="nav-item"><a href="/logout" class="nav-link">Log Out</a></li>
         </ul>
@@ -51,6 +51,16 @@ body {
   
 <!-- !PAGE CONTENT! -->
 <div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+
+<header class="w3-display-container w3-wide" id="home">
+    <img class="w3-image" src="https://images.vexels.com/media/users/3/179444/isolated/lists/2de090d7b621bcb0ed5315357622f124-pastry-cake-cherry-flat.png" alt="Fashion Blog" width="200" height="100">
+    <div class="w3-display-right w3-padding-large">
+      <h1 >CUK's</h1>
+      <h1 ><b>Un disfrutre al Paladar</b></h1>
+    </div>
+</header>
+
   {% for receta in recetas %}
   <div class="w3-container w3-light-grey" style="padding:128px 16px">
     <div class="w3-row-padding">
@@ -68,32 +78,19 @@ body {
   {% endfor %}
 
 
-
-
-  <!-- Pagination -->
-  <div class="w3-center w3-padding-32">
-    <div class="w3-bar">
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">«</a>
-      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
-      <a href="#" class="w3-bar-item w3-button w3-hover-black">»</a>
-    </div>
-  </div>
   
   <hr id="about">
 
   <!-- About Section -->
   <div class="w3-container w3-padding-32 w3-center">  
-    <h3>Acerca de Nosotros: </h3><br>
-    <img src="/w3images/chef.jpg" alt="Me" class="w3-image" style="display:block;margin:auto" width="800" height="533">
+    <h3>Acerca de CUK: </h3><br>
+    <img src="https://images.vexels.com/media/users/3/179444/isolated/lists/2de090d7b621bcb0ed5315357622f124-pastry-cake-cherry-flat.png" alt="Me" class="w3-image" style="display:block;margin:auto" width="100" height="100">
     <div class="w3-padding-32">
       <h4><b>Bienvenidos </b></h4>
-      <h6><i>Unidos por la Buena Comida¡¡</i></h6>
+      <h6><i>Unidos por la Buena Comida!!</i></h6>
       <p>
         En este Blog encontraras las mas delicios recetas, se parte de esta comunidad!!!</br>
-        De la comida con amor los antojos por los coloresdel paladar, el gusto del vino y los sabores 
+        De la comida con amor los antojos por los colores del paladar, el gusto del vino y los sabores 
         ¡a la mesa que esta ya puesta!
       </p>
     </div>
@@ -103,7 +100,7 @@ body {
   <!-- Footer -->
   <footer class="w3-row-padding w3-padding-32">
     <div class="w3-third">
-      <h3>Acerca de:</h3>
+      <h3>Contactenos:</h3>
       <p>
           Universidad Sancarlos de Guatemala </br>
           Facultad de Ingenieria </br>
@@ -113,7 +110,6 @@ body {
     </div>
   
     <div class="w3-third">
-        <h3>Contactenos:</h3>
         <ul class="w3-ul w3-hoverable">
           <li class="w3-padding-16">
            
@@ -128,31 +124,11 @@ body {
         </ul>
       </div>
 
-    <div class="w3-third w3-serif">
-      <h3>POPULAR TAGS</h3>
-      <p>
-        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
-        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
-      </p>
-    </div>
   </footer>
 
 <!-- End page content -->
 </div>
 
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
 
 </body>
 </html>
