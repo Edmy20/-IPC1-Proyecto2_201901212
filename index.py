@@ -181,6 +181,11 @@ def eliminar_receta(titulo):
     recetas.remove(receta)
     return redirect(url_for('perfil', usuario=session['usuario_logeado']))
 
+@app.route('/comentarios/<titulo>')
+def tabla_comentarios(titulo):
+    receta = buscar_receta(titulo)
+    return render_template('tablaCom.html', receta=receta, usuario=session['usuario_logeado'])
+
 @app.route('/modificar/<titulo>',methods=["GET","POST"])
 def modificar(titulo):
     receta = buscar_receta(titulo)
@@ -205,4 +210,4 @@ def  home():
     return render_template('home.html', recetas=recetas)
 
 if __name__ =='__main__':
-    app.run(threaded=True, host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)
